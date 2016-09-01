@@ -1,0 +1,6 @@
+<p><strong>Title: </strong><br><%= @game.title %></p>
+<p><strong>Description: </strong><br><%= @game.description%></p>
+<p><strong>Genre: </strong><br><%= @game.genre %></p>
+
+<%= link_to 'Return to List', games_path, class: "btn btn-default" %> 
+<%= link_to 'Edit', edit_game_path, remote: true, class: "btn btn-primary" %><br>

@@ -1,0 +1,9 @@
+<% @games.each do |game| %>
+	<tr>
+		<td><%= link_to game.title, game_path(game) %></td>
+		<td><%= game.description %></td>
+		<td><%= game.genre %></td>
+		<td><%= link_to 'Edit', edit_game_path(game), remote: true, class: "btn btn-default" %></td>
+		<td><%= link_to "Delete", game_delete_path(game), remote: true, class: "btn btn-danger"%></td>
+	</tr>
+<% end %>

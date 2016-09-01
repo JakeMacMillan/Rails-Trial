@@ -1,0 +1,24 @@
+<h1>Games!</h1>
+ 
+<%= link_to 'New Game Entry', new_game_path, remote: true, class: "btn btn-primary"%><br>
+
+  <% if @games.any? %>
+	<table class="table table-bordered table-striped">
+	 <tr>
+	    <th>Title</th>
+	    <th>Description</th>
+	    <th>Genre</th>
+	 </tr>
+	 
+	 <tbody class="game-index">
+	 	<%= render "index" %>
+	 </tbody>
+
+	</table>
+  <% else %>
+	<h2>Looks like there's no games here!<br>
+	Make a new one!
+	</h2>
+  <% end %>
+
+<div id="game-modal" class="modal fade"></div>

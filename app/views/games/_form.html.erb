@@ -1,0 +1,44 @@
+<div class="modal-dialog">
+	<div class="modal-content">
+		<%= form_for @game, remote:true do |f| %>
+		<div class="modal-body">
+			<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+			<!-- Checks for any errors -->
+			<ul class="errors"></ul>
+			 
+			<!-- group for the title field of form -->
+			<div class="form-group">
+				<%= f.label :title %><br>
+				<%= f.text_field :title %>
+			</div>
+		 
+			<!-- group for the description field of form -->
+		    <div class="form-group">
+		    	<%= f.label :description %><br>
+		    	<%= f.text_area :description %>
+		    </div>
+		    
+			<!-- group for radio buttons to choose genre -->
+			<div class="form-group">
+				<%= f.radio_button(:genre, "Shooter") %>
+				<%= label_tag(:genre_shooter, "Shooter") %>
+				<%= f.radio_button(:genre, "Puzzle") %>
+				<%= label_tag(:genre_puzzle, "Puzzle")%>
+				<%= f.radio_button(:genre, "CCG") %>
+			    <%= label_tag(:genre_ccg, "CCG")%>
+			    <%= f.radio_button(:genre, "MOBA") %>
+			    <%= label_tag(:genre_moba, "MOBA")%>
+			    <%= f.radio_button(:genre, "RPG") %>
+			    <%= label_tag(:genre_rpg, "RPG")%>
+			    <%= f.radio_button(:genre, "Fitness") %>
+			    <%= label_tag(:genre_fitness, "Fitness")%>
+			</div> 
+			
+		</div> <!-- end of modal-body -->
+		<div class="modal-footer">
+		    <%= f.submit class: "btn btn-primary"%>
+			<%= link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"} %>
+		</div> <!-- closing modal-footer -->
+		<% end %> <!-- end of form -->
+	</div> <!-- closing modal-content -->
+</div> <!-- closing modal-dialog -->
