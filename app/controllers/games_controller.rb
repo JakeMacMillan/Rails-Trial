@@ -1,6 +1,20 @@
 class GamesController < ApplicationController
+	
+	def index
+		@games = Game.all
+	end
+
+	def show
+		@game = Game.find(params[:id])
+	end
+
 	def new
 		@game = Game.new
+	end
+
+	def create
+		@products = Product.all
+		@product = Product.create(product_params)
 	end
 
 	def edit
@@ -8,38 +22,20 @@ class GamesController < ApplicationController
 	end
 
 	def update
+		@products = Product.all
 		@game = Game.find(params[:id])
 
-		if @game.update(game_params)
-			redirect_to @game
-		else
-			render 'edit'
-		end
+		@game.update_attributes(game_params)
 	end
 
-	def create
-		@game = Game.new(params.require(:game).permit(:title, :description, :genre))
-
-		if @game.save
-			redirect_to @game
-		else
-			render 'new'
-		end
-	end
-
-	def show
-		@game = Game.find(params[:id])
-	end
-
-	def index
-		@games = Game.all
+	def delete
+		@game = Game.find(params[:game_id])
 	end
 
 	def destroy
+		@games = Game.all
 		@game = Game.find(params[:id])
 		@game.destroy
-
-		redirect_to games_path
 	end
 
 	private
