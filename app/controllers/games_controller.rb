@@ -13,8 +13,8 @@ class GamesController < ApplicationController
 	end
 
 	def create
-		@products = Product.all
-		@product = Product.create(product_params)
+		@games = Game.all
+		@game = Game.create(game_params)
 	end
 
 	def edit
@@ -22,7 +22,7 @@ class GamesController < ApplicationController
 	end
 
 	def update
-		@products = Product.all
+		@games = Game.all
 		@game = Game.find(params[:id])
 
 		@game.update_attributes(game_params)
